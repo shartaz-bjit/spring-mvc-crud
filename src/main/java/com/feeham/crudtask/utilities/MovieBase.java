@@ -15,16 +15,16 @@ public class MovieBase {
 
         movies.add(new Movie(1, "The Shawshank Redemption", "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
                 List.of("Drama"), "Drama", LocalDate.of(1994, 9, 22), "Frank Darabont",
-                List.of("Tim Robbins", "Morgan Freeman"), 9.3, "https://example.com/shawshank_redemption.jpg"));
+                List.of("Tim Robbins", "Morgan Freeman"), 9.3, "https://atthemovies.uk/cdn/shop/products/ShawshankRedemption1994us27x40ds500u.jpg?v=1621382927"));
         movies.add(new Movie(2, "The Godfather", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
                 List.of("Crime", "Drama"), "Drama", LocalDate.of(1972, 3, 24), "Francis Ford Coppola",
-                List.of("Marlon Brando", "Al Pacino"), 9.2, "https://example.com/the_godfather.jpg"));
+                List.of("Marlon Brando", "Al Pacino"), 9.2, "https://www.boxofficepro.com/wp-content/uploads/2022/01/TGF50_Dom_Online_1-Sheet_Dolby_V9_rgb_rgb.png"));
+        movies.add(new Movie(6, "The Dark Knight", "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+                List.of("Action", "Crime"), "Action", LocalDate.of(2008, 7, 18), "Christopher Nolan",
+                List.of("Christian Bale", "Heath Ledger"), 9.0, "https://images.moviesanywhere.com/bd47f9b7d090170d79b3085804075d41/c6140695-a35f-46e2-adb7-45ed829fc0c0.jpg?h=375&resize=fit&w=250"));
         movies.add(new Movie(5, "Pulp Fiction", "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
                 List.of("Crime", "Drama"), "Drama", LocalDate.of(1994, 10, 14), "Quentin Tarantino",
                 List.of("John Travolta", "Samuel L. Jackson"), 8.9, "https://example.com/pulp_fiction.jpg"));
-        movies.add(new Movie(6, "The Dark Knight", "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-                List.of("Action", "Crime"), "Action", LocalDate.of(2008, 7, 18), "Christopher Nolan",
-                List.of("Christian Bale", "Heath Ledger"), 9.0, "https://example.com/the_dark_knight.jpg"));
         movies.add(new Movie(7, "Inception", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
                 List.of("Action", "Adventure"), "Action", LocalDate.of(2010, 7, 16), "Christopher Nolan",
                 List.of("Leonardo DiCaprio", "Joseph Gordon-Levitt"), 8.8, "https://example.com/inception.jpg"));

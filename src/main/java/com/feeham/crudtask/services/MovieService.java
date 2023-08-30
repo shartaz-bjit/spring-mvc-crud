@@ -9,18 +9,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class MovieService implements IMoviesService{
-
+    // Dummy database instance.
     private final MovieBase movieBase;
-
     public  MovieService(MovieBase movieBase){
         this.movieBase = movieBase;
     }
 
+    // Return the list of all movies
     @Override
     public List<Movie> getAllMovies() {
         return movieBase.getMovies();
     }
 
+    // Find by id
     @Override
     public Movie getMovieById(int id) {
         return movieBase.getMovies().stream()
@@ -31,15 +32,16 @@ public class MovieService implements IMoviesService{
 
     @Override
     public void addMovie(Movie movie) {
+        // ID is set to the next possible value based on the lists' size
         movie.setId(movieBase.getMovies().size());
         movieBase.getMovies().add(movie);
     }
 
     @Override
     public void updateMovie(int id, Movie movie) {
+        // Reading the existing movie and updating its information
         Movie existingMovie = getMovieById(id);
         if (existingMovie != null) {
-            // Update the attributes of the existing movie with the new attributes from the 'movie' parameter
             existingMovie.setTitle(movie.getTitle());
             existingMovie.setDescription(movie.getDescription());
             existingMovie.setGenres(movie.getGenres());
@@ -52,6 +54,7 @@ public class MovieService implements IMoviesService{
         }
     }
 
+    // Delete a movie by id
     @Override
     public void deleteMovie(int id) {
         Movie movieToDelete = getMovieById(id);
@@ -60,6 +63,14 @@ public class MovieService implements IMoviesService{
         }
     }
 
+    /*
+    * param1 - category of movie
+    * param2 - genre of movie
+    * param3 - year of movie release date
+    * return - list of movie satisfying passed filters
+    *
+    * if any filter param value is null, the filter is not applied
+    */
     @Override
     public List<Movie> filter(String category, String genre, int releaseYear) {
         List<Movie> filteredMovies = movieBase.getMovies();
@@ -86,6 +97,11 @@ public class MovieService implements IMoviesService{
         return filteredMovies;
     }
 
+    /*
+    * Allows two types of sorting, based on boolean value then applies the
+    * third param value to apply ascending or descending sort
+    * exceptional case: if both sort is true only dateOfRelease sort is applied.
+    */
     @Override
     public List<Movie> sort(boolean dateOfRelease, boolean alphabetic, boolean asc) {
         List<Movie> movies = movieBase.getMovies();
@@ -108,6 +124,10 @@ public class MovieService implements IMoviesService{
         return movies;
     }
 
+    /*
+    * This search method uses model.search() method to search in each movies' multiple parameters
+    * After searching in each movie object, it sorts movies based on matched value count
+    */
     @Override
     public List<Movie> search(String text) {
         List<Movie> searchResults = new ArrayList<>();

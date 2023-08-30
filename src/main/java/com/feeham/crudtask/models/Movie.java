@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Movie {
+    // All properties of the movie
     private int id;
     private String title;
     private String description;
@@ -31,6 +32,7 @@ public class Movie {
         this.posterUrl = posterUrl;
     }
 
+    // Getters and setters
     public int getId() {
         return id;
     }
@@ -111,6 +113,8 @@ public class Movie {
         this.posterUrl = posterUrl;
     }
 
+    // Search in title, category, director, genres, actors at once.
+    // The best matching size is returned
     public int match(String keyword) {
         int matches[] = {lcs(keyword, title), lcs(keyword, category), lcs(keyword, director),
                 lcs(keyword, String.join(" ", genres)),
@@ -118,6 +122,7 @@ public class Movie {
         return Arrays.stream(matches).max().orElse(0);
     }
 
+    // Use LCS algorithm to match characters, to show result even if there is spelling mistakes
     private int lcs(String text1, String text2) {
         text1 = text1.toLowerCase();
         text2 = text2.toLowerCase();
